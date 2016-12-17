@@ -4,7 +4,8 @@
   "description": "Demo for proxy server, CORS, etc",
   "main": "index.js",
   "scripts": {
-    "proxy": "cd proxy && npm i && node server.js"
+    "proxy": "cd proxy && npm i && node server.js",
+    "jsonp": "cd jsonp && npm i && node server.js"
   },
   "keywords": [
     "CORS",
