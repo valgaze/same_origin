@@ -2,10 +2,11 @@
   "name": "cors_demo",
   "version": "1.0.0",
   "description": "Demo for proxy server, CORS, etc",
-  "main": "index.js",
   "scripts": {
     "proxy": "cd proxy && npm i && node server.js",
-    "jsonp": "cd jsonp && npm i && node server.js"
+    "jsonp": "cd jsonp && npm i && node server.js",
+    "cors_server": "cd cors && npm i && node server.js",
+    "cors_frontend": "cd cors/host && npm i && node server.js"
   },
   "keywords": [
     "CORS",

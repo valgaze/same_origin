@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>CORS</title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+    <style>
+    body {
+        font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
+        font-size: 15px;
+    }
+    </style>
+</head>
+<body>
+  <h1>Hello, world!</h1>
+  <hr />
+  <p>
+     This is a CORS Demonstration. We are making a request to http://localhost:3000/req/1 and our page is hoste description
+     http://localhost:3001/, this is like being on different domains (ex our page is served from www.example-1.com and our api is
+     hosted at www.domain-2.com/req/1)
+
+     We are not using a proxy server and we are not thankfully not using JSONP. Instead we take advantage of a standard called
+     CORS or CROSS-ORIGIN RESOURCE SHARING. This standard requires buy-in from the client and from the server
+  </p>
+    <script
+    src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+
+    <script>
+
+      $.ajax({
+        url: "http://localhost:3000/req/1",
+        success: myCallback
+      });
+
+      function myCallback(payload) {
+        alert('Fired, the msg from server reads: "' + payload.msg + '" \n(Open console to see the respoonse body)');
+        console.log("**", payload, "**");
+        console.log("msg:", payload.msg);
+        console.log("body", payload.body);
+      }
+
+    </script>
+</body>
+</html>
