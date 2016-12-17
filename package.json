@@ -1,0 +1,15 @@
+{
+  "name": "cors_demo",
+  "version": "1.0.0",
+  "description": "Demo for proxy server, CORS, etc",
+  "main": "index.js",
+  "scripts": {
+    "proxy": "cd proxy && npm i && node server.js"
+  },
+  "keywords": [
+    "CORS",
+    "JSONP"
+  ],
+  "author": "Victor Algaze",
+  "license": "ISC"
+}
