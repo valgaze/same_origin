@@ -1,6 +1,6 @@
 ## CORS
 
-See companion blogpost here:
+See companion blogpost here: https://medium.com/@valgaze/utility-post-cors-json-p-proxy-servers-and-the-same-origin-policy-7233dec2d26c#.wcmnhsnyo
 
 
 ## Proxy server example
