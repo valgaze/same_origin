@@ -1,12 +1,11 @@
 var port = process.env.port || 3000;
 var express = require('express');
-var app = express()
+var app = express();
+var path = require("path");
 var http = require('http');
 var request = require("request");
 
-app.get('/', function(req, res) {
-    res.send('Hello World!');
-});
+app.use('/', express.static(path.join(__dirname, 'public')))
 
 app.use('/proxy/:id', function(req, res) {
     var options = {
@@ -25,7 +24,11 @@ app.use('/proxy/:id', function(req, res) {
     }, function(error, response, body) {
         if (!error && response.statusCode == 200) {
             console.log("Response received!");
-            res.send(JSON.parse(body));
+            var payload = {
+              body: JSON.parse(body),
+              msg: "This is from our proxy server"
+            }
+            res.send(payload);
         }
     });
 });

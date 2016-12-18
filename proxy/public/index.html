@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JSONP</title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+    <style>
+    body {
+        font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
+        font-size: 15px;
+    }
+    </style>
+</head>
+<body>
+  <h1>Hello, world!</h1>
+  <hr />
+  <p>
+     This is a Proxy Server demonstration. Open the console to see a failed cross-origin request to an external API and then a working request which uses our "proxy" server-side
+  </p>
+
+  <button id="fails"></button>
+    <script
+    src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+
+    <script>
+      $(document).ready(function(){
+        request_fails();
+        proxy_works();
+
+
+        function request_fails() {
+          $.ajax({
+            //ERROR: Trying to cross origin
+            url: "http://www.swapi.co/api/people/1",
+            success: myCallback,
+            error: errHandler
+          });
+        }
+
+        function proxy_works() {
+          $.ajax({
+            //WORKS: Use proxy on server so it comes from same origin
+            //Same-Origin is only protocol, hostname, and port: http, localhost, 3000
+            url: "http://localhost:3000/proxy/1",
+            success: myCallback
+          });
+        }
+
+        function myCallback(payload) {
+          alert('Fired, the msg from server reads: "' + payload.msg + '" \n(Open console to see the respoonse body)');
+          console.log("**", payload, "**");
+          console.log("msg:", payload.msg);
+          console.log("body", payload.body);
+        }
+        function errHandler(e) {
+          console.log("Big shocker! Cross origin??");
+          console.log(e);
+        }
+
+      });
+
+    </script>
+</body>
+</html>
