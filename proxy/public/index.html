@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>JSONP</title>
+    <title>Proxy</title>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
     <style>
     body {
@@ -35,7 +35,8 @@
             //ERROR: Trying to cross origin
             url: "http://www.swapi.co/api/people/1",
             success: myCallback,
-            error: errHandler
+            error: errHandler,
+            crossDomain: false
           });
         }
 
